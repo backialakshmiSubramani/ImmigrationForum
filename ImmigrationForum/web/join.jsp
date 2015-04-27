@@ -27,10 +27,10 @@
                         <td><label>Password Again:</label></td>
                         <td><input type="password" name="password2" required/></br></br></td>
                     </tr>
-                    
                     <tr>
-                       <td><input type="submit" value="SignUp" /></td>
-                </tr>
+                        <td> <input type="hidden" name="action" value="join"/></td>
+                        <td><input type="submit" value="Sign Up"/></td>
+                    </tr>
                 </table>
             </form>
             <br/><br/><br/>
@@ -39,6 +39,6 @@
         </div>
 
     </center>
-    </body>
+</body>
 </html>
 
