@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Immigration Forum &raquo; Login</title>
+        <title>Hubbub &raquo; Login</title>
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
-    <body><center>
+    <body>
         <div id="hd">
-            <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
+            <img src="images/immigrationLogo.jpg" alt="logo"/>
         </div>
         <div id="bd">
-            <h1>Log In to Your Account</h1>
+            <h1>Log In to Your Forum Account</h1>
             <h2 class="flash">${flash}</h2>
-            <form method="POST" action="list.jsp" id="login">
+            <form method="POST" action="eindex">
                 <input type="hidden" name="action" value="login"/>
                 <table>
                     <tr>
@@ -23,25 +23,14 @@
                         <td><label class="formElement" for="password">Password:</label></td>
                         <td><input class="formElement" type="password" name="password"/></td>
                     </tr>
-                    <p class="remember_me">
-                        <label>
-                            <label>
-                                <input type="checkbox" name="remember_me" id="remember_me">
-                                Remember me on this computer
-                            </label>
-                        </label>
-                    </p>
                     <tr>
-                        <td colspan="2"><input class="formElement" type="submit" value="Log me in"/></td>
+                        <td colspan="2"><input class="formElement" type="submit" value="Login"/></td>
                     </tr>
                 </table>
-                
-                </form>
-            <a href="signup.jsp">I need to join.   </a>
-            <a href="index.jsp">Goto Home page</a>
+            </form>
+            <a href="eindex?action=join">I need to join Hubbub</a>.
+            <a href="eindex?action=timeline">Show me the Timeline</a>.
         </div>
-        <div class="login-help">
-                <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
-        </div></center>
+        
     </body>
 </html>

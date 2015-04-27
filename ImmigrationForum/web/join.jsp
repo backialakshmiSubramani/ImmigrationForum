@@ -1,8 +1,9 @@
 <%@page contentType="text/html" pageEncoding="ISO-8859-1" trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hubbub &raquo; Join</title>
+        <title>Immigration Forum &raquo; Join</title>
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
     <body>
@@ -13,7 +14,7 @@
         <div id="bd">
             <h1>Sign Up!</h1>
             <h2 class="flash">${flash}</h2>
-            <form method="POST" action="index.jsp">
+            <form method="POST" action="eindex">
                 <table>
                     <tr>
                         <td><label>User Name:</label></td>
@@ -28,14 +29,13 @@
                     </tr>
                     
                     <tr>
-                        <td><input type="hidden" name="action" value="signup"/></td>
-                        <td><input type="submit" value="Sign Up"/></td>
+                       <td><input type="submit" value="SignUp" /></td>
                 </tr>
                 </table>
             </form>
             <br/><br/><br/>
-            <a class="nav" href="index.jsp">Back to Home Page.</a>.
-            <a class="nav" href="login.jsp">I already have an account, Log in</a>.
+            <a class="nav" href="eindex?action=timeline">Back to Home Page.</a>.
+            <a class="nav" href="eindex?action=login">I already have an account, Log in</a>.
         </div>
 
     </center>
