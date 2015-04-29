@@ -1,11 +1,13 @@
 <%@page contentType="text/html" pageEncoding="ISO-8859-1" trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hubbub &raquo; Login</title>
+        <title>Login Page &raquo; Login</title>
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
     <body>
+    <center>
         <div id="hd">
             <img src="images/immigrationLogo.jpg" alt="logo"/>
         </div>
@@ -17,20 +19,21 @@
                 <table>
                     <tr>
                         <td><label class="formElement" for="username">User Name:</label></td>
-                        <td><input class="formElement" type="text" name="username"/></td>
+                        <td><input class="formElement" type="text" name="username" required/><br/></td>
                     </tr>
                     <tr>
                         <td><label class="formElement" for="password">Password:</label></td>
-                        <td><input class="formElement" type="password" name="password"/></td>
+                        <td><input class="formElement" type="password" name="password" required/><br/><br/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input class="formElement" type="submit" value="Login"/></td>
+                        <td><input class="formElement" type="submit" value="Login"/></td>
                     </tr>
                 </table>
             </form>
-            <a href="eindex?action=join">I need to join Hubbub</a>.
-            <a href="eindex?action=timeline">Show me the Timeline</a>.
+            <br/><br/>
+            <a href="eindex?action=join">New User / Register</a>.
+            <a href="eindex?action=timeline">Back to Home Page</a>.
         </div>
-        
-    </body>
+    </center>
+</body>
 </html>

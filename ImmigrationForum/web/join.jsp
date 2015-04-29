@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Immigration Forum &raquo; Join</title>
+        <title>Sign Up Immigration Forum &raquo; Join</title>
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
     <body>
@@ -12,7 +12,7 @@
             <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
         </div>
         <div id="bd">
-            <h1>Sign Up!</h1>
+            <h1>Register for a New Account</h1>
             <h2 class="flash">${flash}</h2>
             <form method="POST" action="eindex">
                 <table>
@@ -36,6 +36,7 @@
             <br/><br/><br/>
             <a class="nav" href="eindex?action=timeline">Back to Home Page.</a>.
             <a class="nav" href="eindex?action=login">I already have an account, Log in</a>.
+
         </div>
 
     </center>

@@ -23,9 +23,12 @@
                     <a class="nav" href="logout">Log out of Hubbub</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="eindex?action=join" class="button">Sign up </a>
+                    <a href="eindex?action=join" class="button">Register</a>
 
-                    <a href="eindex?action=login" class ="button1">Login </a>
+                    <a href="eindex?action=login" class ="button1">Login</a>
+                    
+                    <a href="/ImmigrationForum/PostServlet" class ="button2">Posts</a><br/>
+                    <a href="/ImmigrationForum/UserServlet" class ="button2">Users</a>
                 </c:otherwise>
             </c:choose>
         </div>
