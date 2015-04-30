@@ -17,10 +17,10 @@
             <c:choose>
                 <c:when test="${sessionScope.user.username != null}">
                     <a class="nav" href="action=post">Hey, ${sessionScope.user.username}! Post something!</a>
-                    <a class="nav" href="wall">View my wall.</a>
+                    
                     <a class="nav" href="action=profile&username=${sessionScope.user.username}">View my profile</a>
                     <a class="nav" href="action=pedit">Update my profile</a>
-                    <a class="nav" href="logout">Log out of Hubbub</a>
+                    <a class="nav" href="logout">Log out</a>
                 </c:when>
                 <c:otherwise>
                     <a href="eindex?action=join" class="button">Register</a>
