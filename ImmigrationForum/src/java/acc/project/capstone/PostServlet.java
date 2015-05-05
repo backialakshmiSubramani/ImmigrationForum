@@ -30,7 +30,7 @@ public class PostServlet extends HttpServlet {
             request.getRequestDispatcher("post.jsp").forward(request, response);
         }  catch(Exception e){
             request.setAttribute("flash", e.getMessage());
-            request.getRequestDispatcher("post.jsp").forward(request, response);
+            request.getRequestDispatcher("post1.jsp").forward(request, response);
         }
 
     }

@@ -122,7 +122,7 @@ public class Post implements Serializable {
 
     @Override
     public String toString() {
-        return "acc.project.capstone.Post[ id=" + id + " ]";
+        return String.format("%s (posted %s)", content, postdate);
     }
     
 }

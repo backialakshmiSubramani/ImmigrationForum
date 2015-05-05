@@ -13,51 +13,81 @@
             <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
             <h1 class="center">Immigration Forum</h1>
 
-
+            <%@include file="header.jspf" %>
+            <br/><br/>
             <c:choose>
                 <c:when test="${sessionScope.user.username != null}">
-                    <a class="nav" href="action=post">Hey, ${sessionScope.user.username}! Post something!</a>
-                    
-                    <a class="nav" href="action=profile&username=${sessionScope.user.username}">View my profile</a>
-                    <a class="nav" href="action=pedit">Update my profile</a>
-                    <a class="nav" href="logout">Log out</a>
+                    <a class="nav" href="eindex?action=post">Hey, ${sessionScope.user.username}! Post something!</a>
+
+                    <a class="nav" href="eindex?action=profile&username=${sessionScope.user.username}">View my profile</a>
+                    <a class="nav" href="eindex?action=logout">Logout</a>
                     <a href="/ImmigrationForum/PostServlet" class ="button2">Posts</a><br/>
                 </c:when>
                 <c:otherwise>
                     <a href="eindex?action=join" class="button">Register</a>
 
                     <a href="eindex?action=login" class ="button1">Login</a>
-                    
-                    
+
+
                     <a href="/ImmigrationForum/UserServlet" class ="button2">Users</a>
                 </c:otherwise>
             </c:choose>
-        </div>
-        <nav id="primary_nav_wrap">
-            <ul>
-                <li class="current-menu-item"><a href="#">Home</a></li>
-                <li><a href="#">Wiki</a>
-                    <ul>
-                        <li><a href="#">Visa Types</a></li>
-                        <li><a href="#">Mostly Discussed</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Forum</a>
-                    <ul>
-                        <li><a href="#">Today's Top Posts</a></li>
-                        <li><a href="#">Interesting Topics</a></li>
-                        <li><a href="#">How to Use Forum</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">My Account</a>
-                    <ul>
-                        <li class="dir"><a href="#">My Profile</a></li>
-                        <li class="dir"><a href="#">Edit Profile</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-    </body>
+
+            <h1>Posts</h1>
+            <c:forEach var="posts" items="${AllPosts}">
+
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td>User Name :</td>
+                            <td><c:choose>
+                                    <c:when test="${user.username != null}">
+                                        <a href="eindex?action=profile&username=${posts.authorid.username}">
+                                            <span class="postAuthor">${posts.authorid.username}</span>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="postAuthor">${posts.authorid.username}</span>
+                                    </c:otherwise>
+                                </c:choose></td>
+                        </tr>
+                        <tr>
+                            <td>Post Content:</td>
+                            <td>${posts.content}</td>
+                        </tr>
+                        <tr>
+                            <td>Post Date:</td>
+                            <td>${posts.postdate}</td>
+                        </tr>
+                        <tr>
+                            <td>Post Id:</td>
+                            <td>${posts.id}</td>
+                        </tr>
+                    </tbody>
+                </table>  </c:forEach>
+
+
+
+                <h2>Time Line</h2>
+            <c:forEach var="posts" items="${AllPosts}">
+
+                <c:choose>
+                    <c:when test="${user.username != null}">
+                        <a href="eindex?action=profile&username=${posts.authorid.username}">
+                            <span class="postAuthor">${posts.authorid.username}</span>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <span class="postAuthor">${posts.authorid.username}</span>
+                    </c:otherwise>
+                </c:choose>
+                <span class="postDate">(user since ${posts.authorid.joindate})</span>
+                <div id="postContent">
+                    ${posts.content}
+                </div>
+                <span class="postDate">Posted ${posts.postdate}</span>
+            </div>   
+        </c:forEach>    
+    </div>
+</body>
 </html>

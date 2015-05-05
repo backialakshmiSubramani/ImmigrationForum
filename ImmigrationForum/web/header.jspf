@@ -1,0 +1,28 @@
+<nav id="primary_nav_wrap">
+            <ul>
+                <li class="current-menu-item"><a href="#">Home</a></li>
+                <li><a href="#">Wiki</a>
+                    <ul>
+                        <li><a href="#">Visa Types</a></li>
+                        <li><a href="#">Mostly Discussed</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Forum</a>
+                    <ul>
+                        <li><a href="#">Today's Top Posts</a></li>
+                        <li><a href="#">Interesting Topics</a></li>
+                        <li><a href="#">How to Use Forum</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">My Account</a>
+                    <ul>
+                        <li class="dir"><a href="#">My Profile</a></li>
+                        <li class="dir"><a href="#">Edit Profile</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+           <br/>
+        </nav>
+
