@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,7 +39,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
-    @Column(name = "USERNAME")
+    @Column(name = "USERNAME",unique=true)
     private String username;
     @Basic(optional = false)
     @NotNull
@@ -54,7 +55,7 @@ public class User implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @JoinColumn(name = "PROFILEID", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.PERSIST)
     private Profile profileid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "authorid")
     private List<Post> postList;

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sign Up Immigration Forum &raquo; Join</title>
+        <title>Sign Up for Immigration Forum &raquo; Join</title>
         <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
     <body>
@@ -36,9 +36,7 @@
             <br/><br/><br/>
             <a class="nav" href="eindex?action=timeline">Back to Home Page.</a>.
             <a class="nav" href="eindex?action=login">I already have an account, Log in</a>.
-
         </div>
-
     </center>
 </body>
 </html>

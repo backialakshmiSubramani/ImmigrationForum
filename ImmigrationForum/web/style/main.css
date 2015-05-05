@@ -231,6 +231,15 @@ hd.right{
 }
 
 
+#pqd {
+    margin-top: 0.5em;
+    background: buttontext;
+    padding: 1em;
+    text-align: center;
+    background-color: background;
+}
+
+
 
 
 

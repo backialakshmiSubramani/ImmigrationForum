@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package acc.project.capstone;
 
 import java.io.Serializable;
@@ -19,12 +14,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author bhagya
- */
 @Entity
 @Table(name = "PROFILES", catalog = "", schema = "JAVAUSER")
 @NamedQueries({
@@ -38,7 +30,7 @@ public class Profile implements Serializable {
     @Size(max = 1024)
     @Column(name = "BIOGRAPHY")
     private String biography;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
@@ -53,9 +45,7 @@ public class Profile implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "profileid")
-    private List<User> userList;
-
+    
     public Profile() {
     }
 
@@ -103,14 +93,7 @@ public class Profile implements Serializable {
         this.id = id;
     }
 
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -133,7 +116,7 @@ public class Profile implements Serializable {
 
     @Override
     public String toString() {
-        return "acc.project.capstone.Profile[ id=" + id + " ]";
+        return String.format("\"%s\" --%s",biography,email);
     }
     
 }

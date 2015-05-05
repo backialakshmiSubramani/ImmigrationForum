@@ -45,9 +45,9 @@ public class Controller extends HttpServlet {
             case "post":
                 destination = post(request);
                 break;
-            case "allPost":
+         /*   case "allPost":
                 destination = allPost(request, response);
-                break;
+                break;*/
         }
         request.getRequestDispatcher(destination + ".jsp").forward(request, response);
     }
@@ -90,7 +90,7 @@ public class Controller extends HttpServlet {
         EntityManager em = getEM();
         try {
             List<Post> posts = em.createNamedQuery("Post.findAll").getResultList();
-            request.setAttribute("AllPosts", posts);
+            request.setAttribute("posts", posts);
 
         } catch (Exception e) {
             request.setAttribute("flash", e.getMessage());
@@ -142,7 +142,7 @@ public class Controller extends HttpServlet {
         }
     }
 
-    private String allPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ /*   private String allPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("ImmigrationForumPU");
             EntityManager em = emf.createEntityManager();
@@ -156,7 +156,7 @@ public class Controller extends HttpServlet {
         }
         return "timeline";
     }
-
+*/
     private String post(HttpServletRequest request) throws ServletException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
@@ -195,6 +195,7 @@ public class Controller extends HttpServlet {
     private EntityManager getEM() {
         EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
         return emf.createEntityManager();
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

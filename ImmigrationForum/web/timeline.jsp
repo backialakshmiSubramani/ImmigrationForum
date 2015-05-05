@@ -7,8 +7,6 @@
         <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
-
-
         <div id="hd">
             <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
             <h1 class="center">Immigration Forum</h1>
@@ -17,11 +15,11 @@
             <br/><br/>
             <c:choose>
                 <c:when test="${sessionScope.user.username != null}">
-                    <a class="nav" href="eindex?action=post">Hey, ${sessionScope.user.username}! Post something!</a>
+                    <a class="nav" href="eindex?action=post">Hi, ${sessionScope.user.username}! Post something!</a>
 
                     <a class="nav" href="eindex?action=profile&username=${sessionScope.user.username}">View my profile</a>
                     <a class="nav" href="eindex?action=logout">Logout</a>
-                    <a href="/ImmigrationForum/PostServlet" class ="button2">Posts</a><br/>
+
                 </c:when>
                 <c:otherwise>
                     <a href="eindex?action=join" class="button">Register</a>
@@ -34,9 +32,8 @@
             </c:choose>
 
             <h1>Posts</h1>
-            <c:forEach var="posts" items="${AllPosts}">
-
-                <table border="1">
+            <c:forEach var="posts" items="${posts}">
+ <table border="1">
                     <tbody>
                         <tr>
                             <td>User Name :</td>
@@ -63,13 +60,14 @@
                             <td>Post Id:</td>
                             <td>${posts.id}</td>
                         </tr>
+                        <br/>
                     </tbody>
                 </table>  </c:forEach>
 
 
 
                 <h2>Time Line</h2>
-            <c:forEach var="posts" items="${AllPosts}">
+            <c:forEach var="posts" items="${posts}">
 
                 <c:choose>
                     <c:when test="${user.username != null}">

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package acc.project.capstone;
 
 import java.io.Serializable;
@@ -30,7 +25,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "POSTS", catalog = "", schema = "JAVAUSER")
 @NamedQueries({
-    @NamedQuery(name = "Post.findAll", query = "SELECT p FROM Post p"),
+    @NamedQuery(name = "Post.findAll", query = "SELECT p FROM Post p ORDER BY p.postdate DESC"),
     @NamedQuery(name = "Post.findByContent", query = "SELECT p FROM Post p WHERE p.content = :content"),
     @NamedQuery(name = "Post.findByPostdate", query = "SELECT p FROM Post p WHERE p.postdate = :postdate"),
     @NamedQuery(name = "Post.findById", query = "SELECT p FROM Post p WHERE p.id = :id")})
@@ -41,11 +36,9 @@ public class Post implements Serializable {
     @Size(min = 1, max = 140)
     @Column(name = "CONTENT")
     private String content;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "POSTDATE")
     @Temporal(TemporalType.DATE)
-    private Date postdate;
+    private Date postdate = CurrentDate.now();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -62,10 +55,10 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public Post(Integer id, String content, Date postdate) {
+    public Post(Integer id, String content) {
         this.id = id;
         this.content = content;
-        this.postdate = postdate;
+        
     }
 
     public String getContent() {
