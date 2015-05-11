@@ -1,6 +1,6 @@
 <nav id="primary_nav_wrap">
     <ul>
-        <li class="current-menu-item"><a href="#">Home</a></li>
+        <li class="current-menu-item"><a href="eindex?action=timeline.jsp">Home</a></li>
         <li><a>Wiki</a>
             <ul>
                 <li><a href="visaCategories.jsp">Visa Categories</a></li>
@@ -20,9 +20,11 @@
                 <li class="dir"><a href="#">Edit Profile</a></li>
             </ul>
         </li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="faq.jsp">FAQ</a></li>
+        <li><a href="contact.jsp">Contact Us</a></li>
     </ul>
+    <input type="text" value="" title="search this site" name="search_input" id="search_input">
+    <input type="image" src="images/btn_search.png" value="search" name="search_btn" id="search_btn" alt="search button">
     <br/>
 </nav>
 

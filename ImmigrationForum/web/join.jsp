@@ -4,12 +4,12 @@
 <html>
     <head>
         <title>Sign Up for Immigration Forum &raquo; Join</title>
-        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
     <center>
         <div id="hd">
-            <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
+            <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
         <div id="bd">
             <h1>Register for a New Account</h1>

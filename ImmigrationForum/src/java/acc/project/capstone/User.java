@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -109,11 +108,11 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public Profile getProfileid() {
+    public Profile getProfile() {
         return profileid;
     }
 
-    public void setProfileid(Profile profileid) {
+    public void setProfile(Profile profileid) {
         this.profileid = profileid;
     }
 

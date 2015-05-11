@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="hd">
-            <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
+            <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
         <div id="bd">
             <c:choose>
@@ -16,7 +16,7 @@
                     <img src="eindex?action=image&for=${profileuser.username}"/>
                 </c:when>
                 <c:otherwise>
-                    <img src="images/domo.jpg"/>
+                    <img src="images/default.jpg"/>
                 </c:otherwise>
             </c:choose>
             <h1>Profile for
@@ -39,6 +39,5 @@
             </c:if>
             <a class="nav" href="eindex">Take me back to the Timeline.</a>
         </div>
-        <%@include file="footer.jspf"%>
-    </body>
+         </body>
 </html>

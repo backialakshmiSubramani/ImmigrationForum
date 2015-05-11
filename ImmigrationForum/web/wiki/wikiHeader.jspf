@@ -1,0 +1,12 @@
+<%@ page pageEncoding="UTF-8" %>
+<div id="hd">
+    
+    <link rel="stylesheet" type="text/css" href="style/main1.css"/>
+</div>
+    <h3><div id="pqd"> <p>The purpose of your intended travel and other facts will determine what type of visa
+                is required under U.S. immigration law.&nbsp;As a visa applicant, 
+                you will need to establish that you meet all requirements to receive
+                the category of visa for which you are applying. When you apply at
+                a U.S embassy or consulate, a consular officer will determine based on laws.
+            </p></h3> <br/><br/>
+</div>

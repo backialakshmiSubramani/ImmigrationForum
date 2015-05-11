@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="hd">
-            <img class="logo" src="images/immigrationLogo.jpg" alt="logo"/>
+            <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
             <h1 class="center">Immigration Forum</h1>
 
             <%@include file="header.jspf" %>
@@ -32,7 +32,7 @@
             </c:choose>
 
             <h1>Posts</h1>
-            <c:forEach var="posts" items="${posts}">
+             <c:forEach var="posts" items="${posts}">
  <table border="1">
                     <tbody>
                         <tr>
@@ -64,12 +64,12 @@
                     </tbody>
                 </table>  </c:forEach>
 
-
+        </div>
 
                 <h2>Time Line</h2>
             <c:forEach var="posts" items="${posts}">
-
-                <c:choose>
+                <div class="post">
+               <c:choose>
                     <c:when test="${user.username != null}">
                         <a href="eindex?action=profile&username=${posts.authorid.username}">
                             <span class="postAuthor">${posts.authorid.username}</span>

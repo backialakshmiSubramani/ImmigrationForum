@@ -1,0 +1,48 @@
+#header {
+    background-color: #6666ff;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:200px;
+    width:250px;
+    float:left;
+    padding:5px; 
+}
+#section {
+    height: max-content;
+     width:700px;
+    float: left;
+    padding:10px; 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+
+#pqd {
+    margin-top: 0.5em;
+    background: buttontext;
+    padding: 1em;
+    text-align: center;
+    background-color: #eeeeee;
+}
+#post {
+    margin: 18px;
+    border: 1px solid darkblue;
+    padding: 8px;
+    background: #dddddd;
+    border-radius: .5em;
+    box-shadow: 10px 10px 5px #888888;
+    color:black;
+    
+}
+#section.table{
+    text-align: center;
+}

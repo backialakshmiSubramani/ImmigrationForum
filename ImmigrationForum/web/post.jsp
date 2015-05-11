@@ -7,10 +7,10 @@
     </head>
     <body>
         <div id="hd">
-            <img src="images/headerlogo.png" alt="logo"/>
+            <a href="eindex?action=timeline.jsp"><img src="images/headerlogo.png" alt="logo"/></a>
         </div>
         <div id="bd">
-            <h1>What are you hackin' on, ${sessionScope.user.username}?</h1>
+            <h1>Hi  ${sessionScope.user.username}?</h1>
             <h2 class="flash">${flash}</h2>
             <form method="POST" action="eindex">
                 <textarea name="content" rows="3" cols="80" placeholder="Say something" required></textarea>

@@ -1,23 +1,36 @@
-<%@page contentType="text/html" pageEncoding="ISO-8859-1" trimDirectiveWhitespaces="true"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="style/main1.css"/>
         <title>Immigration Forum &raquo; Visa Categories</title>
-        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     </head>
     <body>
-        <div id="hd">
-            <img src="images/headerlogo.png" alt="logo"/>
+
+       <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
+        <div id="header">
+            <h1>Directory of Visa Categories</h1>
         </div>
-        <h1>Directory of Visa Categories</h1>
-    <center><h3><div id="pqd"> <p>The purpose of your intended travel and other facts will determine what type of visa
-                    is required under U.S. immigration law.&nbsp;As a visa applicant, 
-                    you will need to establish that you meet all requirements to receive
-                    the category of visa for which you are applying. When you apply at
-                    a U.S embassy or consulate, a consular officer will determine based on laws.
-                    </p></h3> <br/><br/>
-                    <%@include file="test.jspf" %>
-    </center></div>
+
+        <div id="nav">
+            <a href="niList.jsp" target="iframe_a">Non-Immigration Visa Categories</a><br>
+            <a href="iList.jsp" target="iframe_a">Immigration Visa Categories</a><br>
+            <a class="nav" href="eindex?action=timeline">Back to Home</a><br>
+        </div>
+
+        <div id="section">
+            
+                <%@include file="wiki/wikiHeader.jspf" %>
+            <iframe width="100%" height="900px" name="iframe_a"></iframe>
+        
+
+    </div>
+
+    <div id="footer">
+        Immigration Forum - Directory of Visa Categories...
+    </div>
+
 </body>
+
 </html>

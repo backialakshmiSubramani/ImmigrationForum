@@ -9,7 +9,7 @@
     <body>
     <center>
         <div id="hd">
-            <img src="images/immigrationLogo.jpg" alt="logo"/>
+            <a href="eindex?action=timeline.jsp"><img src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
         <div id="bd">
             <h1>Log In to Your Forum Account</h1>

@@ -42,12 +42,15 @@ public class Controller extends HttpServlet {
             case "profile":
                 destination = profile(request);
                 break;
+            case "pedit":
+                destination = editProfile(request);
+                break;
             case "post":
                 destination = post(request);
                 break;
-         /*   case "allPost":
-                destination = allPost(request, response);
-                break;*/
+            /*   case "allPost":
+             destination = allPost(request, response);
+             break;*/
         }
         request.getRequestDispatcher(destination + ".jsp").forward(request, response);
     }
@@ -70,7 +73,7 @@ public class Controller extends HttpServlet {
         }
 
         User user = new User(username, password);
-        user.setProfileid(new Profile());
+        user.setProfile(new Profile());
         EntityManager em = getEM();
         try {
             em.getTransaction().begin();
@@ -133,7 +136,7 @@ public class Controller extends HttpServlet {
             User user = (User) em.createNamedQuery("User.findByUsername")
                     .setParameter("username", username)
                     .getSingleResult();
-            Profile p = user.getProfileid();
+            Profile p = user.getProfile();
             request.setAttribute("profileuser", user);
             return "profile";
         } catch (Exception sqle) {
@@ -141,22 +144,46 @@ public class Controller extends HttpServlet {
             return "profile";
         }
     }
-
- /*   private String allPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    private String editProfile(HttpServletRequest request)
+            throws ServletException {
+        User user = (User)request.getSession().getAttribute("user");
+        if (request.getMethod().equals("GET")) {
+            request.setAttribute("user",user);
+            return "profile_only_edit";
+        }
+        String bio = request.getParameter("biography");
+        String email = request.getParameter("email");
+        Profile p = user.getProfile();
+        p.setBiography(bio);
+        p.setEmail(email);
+        EntityManager em = getEM();
         try {
-            EntityManagerFactory emf = Persistence.createEntityManagerFactory("ImmigrationForumPU");
-            EntityManager em = emf.createEntityManager();
-            Query q = em.createNamedQuery("Post.findAll");
-            List<Post> post = q.getResultList();
-            request.setAttribute("AllPosts", post);
-            request.getRequestDispatcher("post.jsp").forward(request, response);
+            em.getTransaction().begin();
+            em.merge(p);
+            em.getTransaction().commit();
+            return profile(request);
         } catch (Exception e) {
             request.setAttribute("flash", e.getMessage());
-            request.getRequestDispatcher("post1.jsp").forward(request, response);
+            return "profile_only_edit";
         }
-        return "timeline";
     }
-*/
+
+    /*   private String allPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     try {
+     EntityManagerFactory emf = Persistence.createEntityManagerFactory("ImmigrationForumPU");
+     EntityManager em = emf.createEntityManager();
+     Query q = em.createNamedQuery("Post.findAll");
+     List<Post> post = q.getResultList();
+     request.setAttribute("AllPosts", post);
+     request.getRequestDispatcher("post.jsp").forward(request, response);
+     } catch (Exception e) {
+     request.setAttribute("flash", e.getMessage());
+     request.getRequestDispatcher("post1.jsp").forward(request, response);
+     }
+     return "timeline";
+     }
+     */
     private String post(HttpServletRequest request) throws ServletException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
@@ -195,7 +222,7 @@ public class Controller extends HttpServlet {
     private EntityManager getEM() {
         EntityManagerFactory emf = (EntityManagerFactory) getServletContext().getAttribute("emf");
         return emf.createEntityManager();
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
