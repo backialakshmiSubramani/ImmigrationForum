@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="hd">
-            <img src="images/immigrationLogo.png" alt="logo"/>
+            <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>hb
         </div>
         <div id="bd">
             <h1>Profile for ${user.username}</h1>
@@ -45,6 +45,8 @@
         <a class="nav" href="eindex?action=">Upload a profile picture.</a>
         <a class="nav" href="eindex?action=timeline">Take me back to the Timeline.</a>    
     </div>
-    
+    <div id="footer">
+        Immigration Forum - Edit the Profile.
+    </div>
 </body>
 </html>

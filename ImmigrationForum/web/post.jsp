@@ -19,6 +19,8 @@
             </form>
             <a class="nav" href="eindex?action=timeline">Back to the timeline</a>
         </div>
-        
+        <div id="footer">
+        Immigration Forum - Post Content.
+    </div>
     </body>
 </html>

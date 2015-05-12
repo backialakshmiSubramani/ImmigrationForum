@@ -163,7 +163,7 @@ hd.right{
     font-size:15px;
     line-height:25px;
     padding:0 30px;
-    font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif
+    font-family:"HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
 
@@ -198,14 +198,14 @@ hd.right{
     top:100%;;
     left:0;
     background: #6666ff;
-    padding:0
+    padding:0;
 }
 
 #primary_nav_wrap ul ul li
 {
     background-color:#6666ff;
     float:none;
-    width:300px
+    width:300px;
 }
 
 #primary_nav_wrap ul ul a
@@ -214,14 +214,14 @@ hd.right{
     color : white;
     font-weight: normal;
     line-height:100%;
-    padding:10px 15px
+    padding:10px 15px;
 }
 
 #primary_nav_wrap ul ul ul
 {
     background-color:#6666ff;
     top:0;
-    left:100%
+    left:100%;
 }
 
 #primary_nav_wrap ul li:hover > ul

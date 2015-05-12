@@ -35,5 +35,8 @@
             <a href="eindex?action=timeline">Back to Home Page</a>.
         </div>
     </center>
+            <div id="footer">
+        Immigration Forum - Login into your Account.
+    </div>
 </body>
 </html>

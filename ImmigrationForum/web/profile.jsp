@@ -10,7 +10,7 @@
         <div id="hd">
             <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
-        <div id="bd">
+        <div class="post">
             <c:choose>
                 <c:when test="${profileuser.profile.picture != null}">
                     <img src="eindex?action=image&for=${profileuser.username}"/>
@@ -31,13 +31,17 @@
 
             </h1>
             <h2 class="flash">${flash}</h2>
-            <p>Joined on ${profileuser.joindate}.</p>
+            
             <div class="biography"> ${profileuser.profile.biography}</div>
+            <p>Joined on ${profileuser.joindate}.</p><br/>
             <c:if test="${sessionScope.user.id == profileuser.id}">
                 <a class="nav" href="eindex?action=pedit">Edit my profile</a>
                 <a class="nav" href="eindex?action=post">Post something</a>
             </c:if>
             <a class="nav" href="eindex">Take me back to the Timeline.</a>
         </div>
+            <div id="footer">
+        Immigration Forum - User Profile.
+    </div>
          </body>
 </html>

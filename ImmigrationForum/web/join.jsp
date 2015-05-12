@@ -38,6 +38,10 @@
             <a class="nav" href="eindex?action=login">I already have an account, Log in</a>.
         </div>
     </center>
+            
+            <div id="footer">
+        Immigration Forum - Create an Account.
+    </div>
 </body>
 </html>
 
