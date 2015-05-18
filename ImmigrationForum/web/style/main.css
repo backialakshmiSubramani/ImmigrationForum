@@ -314,6 +314,34 @@ form {
     color: red;
 }
 
+table.imagetable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+
+    background: #dddddd;
+    border-width: 0.5px;
+    border-color: #999999;
+    border-collapse: collapse;
+
+}
+table.imagetable th {
+    background:#b5cfd2;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #999999;
+}
+table.imagetable td {
+    background:#dddddd;
+    border: 1px solid darkblue;
+    border-radius: .5em;
+    box-shadow: 10px 10px 5px #888888;
+    border-width: 2px;
+    padding: 8px;
+    border-style: dotted;
+    border-color: #999999;
+}
+
 
 
 

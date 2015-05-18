@@ -30,16 +30,16 @@
                     <a href="/ImmigrationForum/UserServlet" class ="button2">Users</a>
                 </c:otherwise>
             </c:choose>
-
+        </div>
+            <div>
 
             <h1>Posts</h1>
-            <table BORDER=1 CELLPADDING=1 CELLSPACING=1 WIDTH=80%>
+            <table class="imagetable" CELLPADDING=1 CELLSPACING=1 WIDTH=90%>
                 <thead>
                     <tr>
                         <th>Username      </th>
                         <th>content       </th>
                         <th>date          </th>
-                        <th>id            </th>
                     </tr>
                 </thead>
                 <c:forEach var="posts" items="${posts}">
@@ -58,47 +58,11 @@
                                 </c:choose></td>
                             <td>${posts.content}</td>
                             <td>${posts.postdate}</td>
-                            <td>${posts.id}</td>
                         </tr>
                     </tbody>
                 </c:forEach>
             </table>
-
-
-            <h1>Posts</h1>
-            <c:forEach var="posts" items="${posts}">
-                <table border="1">
-                    <tbody>
-                        <tr>
-                            <td>User Name :</td>
-                            <td><c:choose>
-                                    <c:when test="${user.username != null}">
-                                        <a href="eindex?action=profile&username=${posts.authorid.username}">
-                                            <span class="postAuthor">${posts.authorid.username}</span>
-                                        </a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span class="postAuthor">${posts.authorid.username}</span>
-                                    </c:otherwise>
-                                </c:choose></td>
-                        </tr>
-                        <tr>
-                            <td>Post Content:</td>
-                            <td>${posts.content}</td>
-                        </tr>
-                        <tr>
-                            <td>Post Date:</td>
-                            <td>${posts.postdate}</td>
-                        </tr>
-                        <tr>
-                            <td>Post Id:</td>
-                            <td>${posts.id}</td>
-                        </tr>
-                    <br/>
-                    </tbody>
-                </table>  </c:forEach>
-
-            </div>
+</div>
 
             <h2>Posts</h2>
         <c:forEach var="posts" items="${posts}">

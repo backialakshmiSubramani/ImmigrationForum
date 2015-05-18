@@ -12,10 +12,11 @@
         <title>Administrator Contact</title>
     </head>
     <body>
+
+        <div id="hd">
+            <a href="eindex?action=timeline.jsp"><img src="images/immigrationLogo.jpg" alt="logo"/></a>
+        </div>
         <center>
-            <div id="hd">
-                <a href="eindex?action=timeline.jsp"><img src="images/immigrationLogo.jpg" alt="logo"/></a>
-            </div>
             <div id="bd">
                 <h1>Contact Us</h1>
                 <h2 class="flash">${flash}</h2>
@@ -41,10 +42,10 @@
 
                 </form>
                 <br/><br/>
-                
+
             </div></center>
-                <div id="footer">
-        Immigration Forum - Contact the Administrator.
-    </div>
+        <div id="footer">
+            Immigration Forum - Contact the Administrator.
+        </div>
     </body>
 </html>
