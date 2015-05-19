@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Immigration Forum &raquo; Posts</title>
+        
         <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
@@ -25,9 +25,6 @@
                     <a href="eindex?action=join" class="button">Register</a>
 
                     <a href="eindex?action=login" class ="button1">Login</a>
-
-
-                    <a href="/ImmigrationForum/UserServlet" class ="button2">Users</a>
                 </c:otherwise>
             </c:choose>
         </div>
@@ -37,7 +34,7 @@
             <table class="imagetable" CELLPADDING=1 CELLSPACING=1 WIDTH=90%>
                 <thead>
                     <tr>
-                        <th>Username      </th>
+                        <th>Username                  </th>
                         <th>content       </th>
                         <th>date          </th>
                     </tr>
@@ -85,8 +82,8 @@
             </div>   
         </c:forEach>    
     </div>
-    <div id="footer">
-        Immigration Forum - Home Page.
+    <div id="ft">
+        Immigration Forum - Frequently Asked questions...
     </div>
 </body>
 </html>

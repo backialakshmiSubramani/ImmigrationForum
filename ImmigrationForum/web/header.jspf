@@ -1,30 +1,37 @@
-<nav id="primary_nav_wrap">
-    <ul>
-        <li class="current-menu-item"><a href="eindex?action=timeline.jsp">Home</a></li>
-        <li><a>Wiki</a>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1" trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+        <title>Immigration Forum &raquo; Posts</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css"/>
+    </head>
+        <nav id="primary_nav_wrap">
             <ul>
-                <li><a href="visaCategories.jsp">Visa Categories</a></li>
-                <li><a href="#">Mostly Discussed</a></li>
+                <li class="current-menu-item"><a href="eindex?action=timeline.jsp">Home</a></li>
+                <li><a>Wiki</a>
+                    <ul>
+                        <li><a href="visaCategories.jsp">Visa Categories</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">Forum</a>
+                    <ul>
+                        <li><a href="#">Today's Top Posts</a></li>
+                        <li><a href="#">Interesting Topics</a></li>
+                        <li><a href="#">How to Use Forum</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="faq.jsp">FAQ</a></li>
+                <li><a href="contact.jsp">Contact Us</a></li>
             </ul>
-        </li>
-        <li><a href="#">Forum</a>
-            <ul>
-                <li><a href="#">Today's Top Posts</a></li>
-                <li><a href="#">Interesting Topics</a></li>
-                <li><a href="#">How to Use Forum</a></li>
-            </ul>
-        </li>
-        <li><a href="#">My Account</a>
-            <ul>
-                <li class="dir"><a href="#">My Profile</a></li>
-                <li class="dir"><a href="#">Edit Profile</a></li>
-            </ul>
-        </li>
-        <li><a href="faq.jsp">FAQ</a></li>
-        <li><a href="contact.jsp">Contact Us</a></li>
-    </ul>
-    <input type="text" value="" title="search this site" name="search_input" id="search_input">
-    <input type="image" src="images/btn_search.png" value="search" name="search_btn" id="search_btn" alt="search button">
-    <br/>
-</nav>
+        </nav>
+            <input type="text" value="" title="search this site" name="search_input" id="search_input">
+            <input type="image" src="images/btn_search.png" value="search" name="search" right:230px>
+            <br/>
+        
+    </body>
+</html>
 

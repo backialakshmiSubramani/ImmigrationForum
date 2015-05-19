@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Immigration Forum &raquo; Profile</title>
-        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
         <div id="hd">
@@ -31,17 +31,17 @@
 
             </h1>
             <h2 class="flash">${flash}</h2>
-            
             <div class="biography"> ${profileuser.profile.biography}</div>
             <p>Joined on ${profileuser.joindate}.</p><br/>
             <c:if test="${sessionScope.user.id == profileuser.id}">
                 <a class="nav" href="eindex?action=pedit">Edit my profile</a>
                 <a class="nav" href="eindex?action=post">Post something</a>
             </c:if>
-            <a class="nav" href="eindex">Take me back to the Timeline.</a>
+            <a class="nav" href="eindex">Back to Home.</a>
+    </div><br/>
+    
+        <div id="ft">
+            Immigration Forum - Profile...
         </div>
-            <div id="footer">
-        Immigration Forum - User Profile.
-    </div>
-         </body>
+    </body>
 </html>

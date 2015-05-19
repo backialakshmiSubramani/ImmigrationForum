@@ -1,18 +1,12 @@
-<%-- 
-    Document   : contact
-    Created on : May 8, 2015, 1:05:27 AM
-    Author     : bhagya
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<%@page contentType="text/html" pageEncoding="ISO-8859-1" trimDirectiveWhitespaces="true"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administrator Contact</title>
+        <link rel="stylesheet" type="text/css" href="style/main1.css"/>
     </head>
     <body>
-
         <div id="hd">
             <a href="eindex?action=timeline.jsp"><img src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
@@ -33,15 +27,15 @@
                         </tr>
                         <tr>
                         <td><label class="formElement areaLabel">Write your Detailed Message :</label></td>
-                        <td colspan="3"><textarea class="formElement" rows="12" cols="50" name="biography"></textarea></td>
+                        <td colspan="3"><textarea class="formElement" rows="11" cols="50" name="biography"></textarea></td>
                         <td rowspan="3">
                             </tr>
-                    </table><br/><br/>
+                    </table><br/>
                     <input class="button" type="submit" value="Submit"/>
                     <input class="button" type="submit" value="Reset"/>
 
                 </form>
-                <br/><br/>
+                <br/>
 
             </div></center>
         <div id="footer">

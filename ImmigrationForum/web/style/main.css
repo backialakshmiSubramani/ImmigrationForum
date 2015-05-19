@@ -338,7 +338,7 @@ table.imagetable td {
     box-shadow: 10px 10px 5px #888888;
     border-width: 2px;
     padding: 8px;
-    border-style: dotted;
+    border-style: groove;
     border-color: #999999;
 }
 

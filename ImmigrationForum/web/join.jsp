@@ -7,10 +7,11 @@
         <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
-    <center>
+    
         <div id="hd">
             <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
+        <center>
         <div id="bd">
             <h1>Register for a New Account</h1>
             <h2 class="flash">${flash}</h2>
@@ -38,8 +39,8 @@
             <a class="nav" href="eindex?action=login">I already have an account, Log in</a>.
         </div>
     </center>
-            
-            <div id="footer">
+
+    <div id="ft">
         Immigration Forum - Create an Account.
     </div>
 </body>

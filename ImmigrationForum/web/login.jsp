@@ -1,17 +1,19 @@
 <%@page contentType="text/html" pageEncoding="ISO-8859-1" trimDirectiveWhitespaces="true"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Login Page &raquo; Login</title>
-        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
-    <center>
+
         <div id="hd">
             <a href="eindex?action=timeline.jsp"><img src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
+    <center>
         <div id="bd">
+
             <h1>Log In to Your Forum Account</h1>
             <h2 class="flash">${flash}</h2>
             <form method="POST" action="eindex">
@@ -35,8 +37,9 @@
             <a href="eindex?action=timeline">Back to Home Page</a>.
         </div>
     </center>
-            <div id="footer">
-        Immigration Forum - Login into your Account.
+
+    <div id="ft">
+        Immigration Forum - Post Content.
     </div>
 </body>
 </html>

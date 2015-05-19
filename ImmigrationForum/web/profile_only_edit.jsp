@@ -4,11 +4,11 @@
 <html>
     <head>
         <title>Immigration Forum &raquo; Edit Profile</title>
-        <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+        <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
         <div id="hd">
-            <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>hb
+            <a href="eindex?action=timeline.jsp"><img class="logo" src="images/immigrationLogo.jpg" alt="logo"/></a>
         </div>
         <div id="bd">
             <h1>Profile for ${user.username}</h1>
@@ -19,7 +19,7 @@
             <table>
                 <tr>
                     <td><label class="formElement areaLabel">Biography</label></td>
-                    <td colspan="3"><textarea class="formElement" rows="12" cols="50" name="biography">${user.profile.biography}</textarea></td>
+                    <td colspan="3"><textarea class="formElement" rows="11" cols="50" name="biography">${user.profile.biography}</textarea></td>
                     <td rowspan="3">
                         <a href="eindex?action=upload">
                             <c:choose>
@@ -43,9 +43,10 @@
             </table>
         </form>
         <a class="nav" href="eindex?action=">Upload a profile picture.</a>
-        <a class="nav" href="eindex?action=timeline">Take me back to the Timeline.</a>    
-    </div>
-    <div id="footer">
+        <a class="nav" href="eindex?action=timeline">Back to Home.</a>    
+    </div><br/>
+    
+    <div id="ft">
         Immigration Forum - Edit the Profile.
     </div>
 </body>
