@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <link rel="stylesheet" type="text/css" href="style/main.css"/>
     </head>
     <body>
@@ -28,9 +28,11 @@
                 </c:otherwise>
             </c:choose>
         </div>
-            <div>
-
+            
+        <div>
+            <a class="button2" href="eindex?action=gridView">Grid View </a>
             <h1>Posts</h1>
+           
             <table class="imagetable" CELLPADDING=1 CELLSPACING=1 WIDTH=90%>
                 <thead>
                     <tr>
@@ -53,35 +55,17 @@
                                         <span class="postAuthor">${posts.authorid.username}</span>
                                     </c:otherwise>
                                 </c:choose></td>
-                            <td>${posts.content}</td>
+                            <td><a class="nav" href="eindex?action=replypost&content=${posts.content}">
+                                    <span class="postAuthor">${posts.content}</span>
+                                </a></td>
                             <td>${posts.postdate}</td>
                         </tr>
                     </tbody>
                 </c:forEach>
             </table>
-</div>
+        </div>
 
-            <h2>Posts</h2>
-        <c:forEach var="posts" items="${posts}">
-            <div class="post">
-                <c:choose>
-                    <c:when test="${user.username != null}">
-                        <a href="eindex?action=profile&username=${posts.authorid.username}">
-                            <span class="postAuthor">${posts.authorid.username}</span>
-                        </a>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="postAuthor">${posts.authorid.username}</span>
-                    </c:otherwise>
-                </c:choose>
-                <span class="postDate">(user since ${posts.authorid.joindate})</span>
-                <div id="postContent">
-                    ${posts.content}
-                </div>
-                <span class="postDate">Posted ${posts.postdate}</span>
-            </div>   
-        </c:forEach>    
-    </div>
+        
     <div id="ft">
         Immigration Forum - Frequently Asked questions...
     </div>

@@ -48,6 +48,12 @@ public class Controller extends HttpServlet {
             case "post":
                 destination = post(request);
                 break;
+            case "replypost":
+                destination = replypost(request);
+                break;
+            case "gridView":
+                destination=gridView(request);
+                break;
             /*   case "allPost":
              destination = allPost(request, response);
              break;*/
@@ -100,6 +106,18 @@ public class Controller extends HttpServlet {
         }
         return "timeline";
     }
+    
+    private String gridView(HttpServletRequest request) throws ServletException {
+        EntityManager em = getEM();
+        try {
+            List<Post> posts = em.createNamedQuery("Post.findAll").getResultList();
+            request.setAttribute("posts", posts);
+
+        } catch (Exception e) {
+            request.setAttribute("flash", e.getMessage());
+        }
+        return "gridView";
+    }
 
     private String login(HttpServletRequest request) throws ServletException {
         if (request.getMethod().equals("GET")) {
@@ -125,6 +143,23 @@ public class Controller extends HttpServlet {
 
     }
 
+    private String replypost(HttpServletRequest request) throws ServletException {
+        String content = request.getParameter("content");
+        EntityManager em = getEM();
+        try {
+
+            Post post = (Post) em.createNamedQuery("Post.findByContent")
+                    .setParameter("content", content).getSingleResult();
+            request.setAttribute("content", content); 
+            request.setAttribute("username", post.getAuthorid().getUsername());
+            request.setAttribute("postdate", post.getPostdate());
+            return "replypost";
+        }catch (Exception sqle) {
+            request.setAttribute("flash", sqle.getMessage());
+            return "replypost";
+        }
+    }
+
     private String profile(HttpServletRequest request) throws ServletException {
         String username = request.getParameter("username");
         if (username == null) {
@@ -144,12 +179,12 @@ public class Controller extends HttpServlet {
             return "profile";
         }
     }
-    
+
     private String editProfile(HttpServletRequest request)
             throws ServletException {
-        User user = (User)request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user");
         if (request.getMethod().equals("GET")) {
-            request.setAttribute("user",user);
+            request.setAttribute("user", user);
             return "profile_only_edit";
         }
         String bio = request.getParameter("biography");
