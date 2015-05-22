@@ -54,6 +54,9 @@ public class Controller extends HttpServlet {
             case "gridView":
                 destination=gridView(request);
                 break;
+        //    case "reply":
+        //        destination=reply(request);
+        //        break;
             /*   case "allPost":
              destination = allPost(request, response);
              break;*/
