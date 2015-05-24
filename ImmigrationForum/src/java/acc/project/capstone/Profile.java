@@ -13,9 +13,15 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author bhagya
+ */
 @Entity
 @Table(name = "PROFILES", catalog = "", schema = "JAVAUSER")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Profile.findAll", query = "SELECT p FROM Profile p"),
     @NamedQuery(name = "Profile.findByBiography", query = "SELECT p FROM Profile p WHERE p.biography = :biography"),
@@ -27,7 +33,7 @@ public class Profile implements Serializable {
     @Size(max = 1024)
     @Column(name = "BIOGRAPHY")
     private String biography;
-    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 50)
     @Column(name = "EMAIL")
     private String email;
@@ -43,6 +49,7 @@ public class Profile implements Serializable {
     @Column(name = "ID")
     private Integer id;
     
+
     public Profile() {
     }
 
@@ -89,8 +96,6 @@ public class Profile implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    
     @Override
     public int hashCode() {
         int hash = 0;

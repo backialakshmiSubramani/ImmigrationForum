@@ -1,4 +1,4 @@
--- HUBBUB 5 BootStrap - use jdbc:derby://localhost:1527/hubbub5;username=javauser;password=javauser (jdbc/hubbub5) Hubbub5PU
+-- ImmigrationForum BootStrap - use jdbc:derby://localhost:1527/immigrationforum;username=javauser;password=javauser (jdbc/IMMIGRATIONFORUM) immigrationForumPU
 DROP TABLE PROFILES;
 DROP TABLE POSTS;
 DROP TABLE USERS;

@@ -17,6 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,11 +25,13 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "POSTS", catalog = "", schema = "JAVAUSER")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Post.findAll", query = "SELECT p FROM Post p ORDER BY p.postdate DESC"),
     @NamedQuery(name = "Post.findByContent", query = "SELECT p FROM Post p WHERE p.content = :content"),
     @NamedQuery(name = "Post.findByPostdate", query = "SELECT p FROM Post p WHERE p.postdate = :postdate"),
-    @NamedQuery(name = "Post.findById", query = "SELECT p FROM Post p WHERE p.id = :id")})
+    @NamedQuery(name = "Post.findById", query = "SELECT p FROM Post p WHERE p.id = :id"),
+    @NamedQuery(name = "Post.findByParentid", query = "SELECT p FROM Post p WHERE p.parentid = :parentid")})
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -36,6 +39,8 @@ public class Post implements Serializable {
     @Size(min = 1, max = 140)
     @Column(name = "CONTENT")
     private String content;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "POSTDATE")
     @Temporal(TemporalType.DATE)
     private Date postdate = CurrentDate.now();
@@ -44,6 +49,8 @@ public class Post implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
+    @Column(name = "PARENTID")
+    private Integer parentid;
     @JoinColumn(name = "AUTHORID", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private User authorid;
@@ -54,11 +61,16 @@ public class Post implements Serializable {
     public Post(Integer id) {
         this.id = id;
     }
-
+    
     public Post(Integer id, String content) {
         this.id = id;
         this.content = content;
-        
+    }
+
+    public Post(Integer id, String content, Date postdate) {
+        this.id = id;
+        this.content = content;
+        this.postdate = postdate;
     }
 
     public String getContent() {
@@ -83,6 +95,14 @@ public class Post implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getParentid() {
+        return parentid;
+    }
+
+    public void setParentid(Integer parentid) {
+        this.parentid = parentid;
     }
 
     public User getAuthorid() {
@@ -116,6 +136,6 @@ public class Post implements Serializable {
     @Override
     public String toString() {
         return String.format("%s (posted %s)", content, postdate);
-    }
+     }
     
 }

@@ -31,7 +31,7 @@
                         <td rowspan="3">
                             </tr>
                     </table><br/>
-                    <input class="button" type="submit" value="Submit"/>
+                    <a href="mailto:email" type="submit" class="button">Submit</a>
                     <input class="button" type="submit" value="Reset"/>
 
                 </form>

@@ -25,33 +25,20 @@
             </c:choose>
         </div>
 
-
-
-
-
         <div class="post">
-            <h3>${requestScope.username}</h3>
-            <h4>Posted: ${requestScope.postdate}
-                <div class="biography">${requestScope.content}</h4>
-            <h3><a class="nav" href="eindex?action=postreply&parentid=${requestScope.id}&postdate=${requestScope.postdate}">Reply</a></h3>
+            <h2>${requestScope.username}</h2>
+            <h3>Posted: ${requestScope.postdate}</h3>
+            <h4>${requestScope.content}</h4>
+            <h2 class="flash">${flash}</h2>
+            <form method="POST" action="eindex?action=postreply">
+                <textarea name="replycontent" rows="3" cols="80" placeholder="Say something" required></textarea>
+                <input type="hidden" name="parentid" value="${requestScope.parentid}"/>
+                <input type="hidden" name="action" value="postreply"/>
+                <input type="submit" value="Reply it!"/>
+            </form>
+            <a class="nav" href="eindex?action=timeline">Back to Home</a>
+            <br/>
         </div>
-
-        <div class="replydisplay">
-            <c:forEach var="posts" items="${posts}">
-
-                <div class="post">  
-                    <h3>${posts.authorid.username}</h3>
-                    <h4>Posted: ${posts.postdate}
-                        <div class="biography"> ${posts.content}</h4>
-                    <h3><a class="nav" href="eindex?action=postreply&parentid=${requestScope.id}&postdate=${requestScope.postdate}">Reply</a></h3>
-                </div>
-            </c:forEach>
-        </div>
-
-
-
-        <div id="ft">
-            Immigration Forum - Post Content.
-        </div>
+        <div id="ft"></div>
     </body>
 </html>

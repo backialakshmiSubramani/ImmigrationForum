@@ -43,8 +43,8 @@
                     </c:otherwise>
                 </c:choose>
                 <span class="postDate">(user since ${posts.authorid.joindate})</span>
-                <div id="postContent">
-                    <a class="nav" href="eindex?action=replypost&content=${posts.content}">
+                <div id="postContent" class="biography">
+                    <a class="nav" href="eindex?action=replypost&content=${posts.content}&parentid=${posts.id}">
                                     <span class="postAuthor">${posts.content}</span>
                                 </a>
                 </div>

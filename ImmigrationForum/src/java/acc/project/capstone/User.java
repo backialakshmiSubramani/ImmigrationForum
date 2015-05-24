@@ -20,6 +20,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,6 +28,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "USERS", schema = "JAVAUSER")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
@@ -38,7 +40,7 @@ public class User implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
-    @Column(name = "USERNAME",unique=true)
+    @Column(name = "USERNAME")
     private String username;
     @Basic(optional = false)
     @NotNull
@@ -54,7 +56,7 @@ public class User implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @JoinColumn(name = "PROFILEID", referencedColumnName = "ID")
-    @OneToOne(optional = false, cascade = CascadeType.PERSIST)
+    @OneToOne(optional = false)
     private Profile profileid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "authorid")
     private List<Post> postList;
@@ -65,15 +67,16 @@ public class User implements Serializable {
     public User(Integer id) {
         this.id = id;
     }
-
+    
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public User(Integer id, String username, String password) {
-        this(username, password);
-        this.id = id;        
+    public User(Integer id, String username) {
+        this.id = id;
+        this.username = username;
+      
     }
 
     public String getUsername() {

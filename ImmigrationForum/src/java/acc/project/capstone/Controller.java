@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -51,15 +50,15 @@ public class Controller extends HttpServlet {
             case "replypost":
                 destination = replypost(request);
                 break;
-            case "gridView":
-                destination=gridView(request);
+            case "postreply":
+                destination = postreply(request);
                 break;
-        //    case "reply":
-        //        destination=reply(request);
-        //        break;
-            /*   case "allPost":
-             destination = allPost(request, response);
-             break;*/
+            case "gridView":
+                destination = gridView(request);
+                break;
+            case "wall":
+                destination = wall(request);
+                break;
         }
         request.getRequestDispatcher(destination + ".jsp").forward(request, response);
     }
@@ -109,7 +108,7 @@ public class Controller extends HttpServlet {
         }
         return "timeline";
     }
-    
+
     private String gridView(HttpServletRequest request) throws ServletException {
         EntityManager em = getEM();
         try {
@@ -146,22 +145,117 @@ public class Controller extends HttpServlet {
 
     }
 
+    private String wall(HttpServletRequest request) throws ServletException {
+        User user = (User) request.getSession().getAttribute("user");
+        EntityManager em = getEM();
+        try {
+            Query q = em.createQuery("SELECT p FROM Post p WHERE p.authorid.id = :id ORDER BY p.postdate DESC");
+            q.setParameter("id", user.getId());
+            List<Post> posts = q.getResultList();
+            request.setAttribute("posts", posts);
+        } catch (Exception e) {
+            request.setAttribute("flash", e.getMessage());
+        }
+        return "wall";
+    }
+
     private String replypost(HttpServletRequest request) throws ServletException {
-        String content = request.getParameter("content");
+        String id = request.getParameter("parentid");
+        User user = (User) request.getSession().getAttribute("user");
+         
         EntityManager em = getEM();
         try {
 
-            Post post = (Post) em.createNamedQuery("Post.findByContent")
-                    .setParameter("content", content).getSingleResult();
-            request.setAttribute("content", content); 
+            Post post = (Post) em.createNamedQuery("Post.findById")
+                    .setParameter("id", Integer.parseInt(id)).getSingleResult();
+            request.setAttribute("id", id);
             request.setAttribute("username", post.getAuthorid().getUsername());
             request.setAttribute("postdate", post.getPostdate());
+            request.setAttribute("content", post.getContent());
+            request.setAttribute("parentid", post.getParentid());
+            
+            
+            //child post
+            
+            Query q = em.createQuery("SELECT p FROM Post p WHERE p.parentid = :id ");
+            
+            q.setParameter("id", Integer.parseInt(id));
+            List<Post> posts = q.getResultList();
+            
+         //   posts.add(post);
+            request.setAttribute("posts", posts);
+            
             return "replypost";
-        }catch (Exception sqle) {
+        } catch (Exception sqle) {
             request.setAttribute("flash", sqle.getMessage());
             return "replypost";
         }
+
+        
     }
+    
+    private String postreply(HttpServletRequest request) throws ServletException {
+        String replycontent = request.getParameter("replycontent");
+        EntityManager em = getEM();
+       
+        
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            request.setAttribute("flash", "You are not logged in!");
+            return "join";
+        }
+
+        String parentid = request.getParameter("parentid");
+        if (parentid.length() < 1) {
+            request.setAttribute("flash", "Parent ID is empty");
+            return "postreply";
+        }
+        int pid = Integer.parseInt(parentid);
+
+        try {
+
+            Post post = (Post) em.createNamedQuery("Post.findById")
+                    .setParameter("id", pid).getSingleResult();
+            request.setAttribute("id", pid);
+            request.setAttribute("parentid", pid);
+            request.setAttribute("content", post.getContent());
+            request.setAttribute("username", post.getAuthorid().getUsername());
+            request.setAttribute("postdate", post.getPostdate());
+           
+        } catch (Exception sqle) {
+            request.setAttribute("flash", sqle.getMessage());
+            return "postreply";
+        }
+       
+        
+        if (request.getMethod().equals("GET")) {
+            return "postreply";
+        }
+
+        if (replycontent.length() < 1 || replycontent.length() > 140) {
+            request.setAttribute("flash", "Reply must be between 1 and 140 characters.");
+            return "postreply";
+        }
+
+        Post post = new Post();
+        post.setContent(replycontent);
+        post.setParentid(pid);
+
+        post.setAuthorid(user);
+        
+        em = getEM();
+        try {
+            em.getTransaction().begin();
+            em.persist(post);
+            em.merge(post);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            request.setAttribute("flash", e.getMessage());
+            return "postreply";
+        }
+        return "postreply";
+    }
+    
 
     private String profile(HttpServletRequest request) throws ServletException {
         String username = request.getParameter("username");
@@ -207,21 +301,6 @@ public class Controller extends HttpServlet {
         }
     }
 
-    /*   private String allPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     try {
-     EntityManagerFactory emf = Persistence.createEntityManagerFactory("ImmigrationForumPU");
-     EntityManager em = emf.createEntityManager();
-     Query q = em.createNamedQuery("Post.findAll");
-     List<Post> post = q.getResultList();
-     request.setAttribute("AllPosts", post);
-     request.getRequestDispatcher("post.jsp").forward(request, response);
-     } catch (Exception e) {
-     request.setAttribute("flash", e.getMessage());
-     request.getRequestDispatcher("post1.jsp").forward(request, response);
-     }
-     return "timeline";
-     }
-     */
     private String post(HttpServletRequest request) throws ServletException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {

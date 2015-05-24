@@ -42,7 +42,7 @@
                 </tr>
             </table>
         </form>
-        <a class="nav" href="eindex?action=">Upload a profile picture.</a>
+       
         <a class="nav" href="eindex?action=timeline">Back to Home.</a>    
     </div><br/>
     
