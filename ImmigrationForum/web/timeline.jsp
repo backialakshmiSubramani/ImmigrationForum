@@ -28,8 +28,8 @@
         </div>
             
         <div>
-            <a class="button2" href="eindex?action=gridView">Grid View </a>
-            <h1>Posts</h1>
+            <a class ="button3" href="eindex?action=gridView"><img src="images/View-Details-Button.png" alt="logo"/></a>
+            <h2>Posts</h3>
            
             <table class="imagetable" CELLPADDING=1 CELLSPACING=1 WIDTH=90%>
                 <thead>
@@ -65,7 +65,7 @@
 
         
     <div id="ft">
-        Immigration Forum - Frequently Asked questions...
+        Immigration Forum - List of Posts...
     </div>
 </body>
 </html>

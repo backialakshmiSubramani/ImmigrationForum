@@ -22,7 +22,7 @@
         </div><br/>
         
         <div id="ft">
-        Immigration Forum - Post Content.
+        Immigration Forum - New Post.
     </div>
     </body>
 </html>

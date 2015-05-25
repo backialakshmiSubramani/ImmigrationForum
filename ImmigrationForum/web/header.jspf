@@ -44,7 +44,7 @@
             </li>>
         </ul>
     
-    <input type="text" title="a" name="search" id="search">
+  
     <a target="new window" href="http://www.google.com"><img type="image" src="images/btn_search.png"
  alt="Submit"/></a></nav>
     <br/>

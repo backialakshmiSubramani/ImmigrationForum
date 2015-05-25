@@ -41,7 +41,7 @@
     </div><br/>
     
         <div id="ft">
-            Immigration Forum - Profile...
+            Immigration Forum - User Profile...
         </div>
     </body>
 </html>

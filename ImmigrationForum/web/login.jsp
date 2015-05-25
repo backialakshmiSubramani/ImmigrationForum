@@ -39,7 +39,7 @@
     </center>
 
     <div id="ft">
-        Immigration Forum - Post Content.
+        Immigration Forum - Login Page.
     </div>
 </body>
 </html>

@@ -47,6 +47,12 @@ nav{
 }
 
 /*Step 3: Link Styles*/
+.button3 {
+    float :  right;
+    position : absolute;
+    right:150px;
+    top:200px;
+}
 
 .button1 {
 

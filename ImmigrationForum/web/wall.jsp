@@ -44,9 +44,12 @@
                     <div id="postContent">
                         ${post.content}
                     </div>
-                    <span class="postDate">Posted ${post.postdate}</span>
+                    <span class="postDate">Posted : ${post.postdate}</span>
                 </div>   
             </c:forEach>    
         </div>
+            <div id="ft">
+        Immigration Forum - View my Wall(Posts)...
+    </div>
     </body>
 </html>

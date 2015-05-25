@@ -51,7 +51,7 @@
 
 
         <div id="ft">
-            Immigration Forum - Post Content.
+            Immigration Forum - Post Content & Replies.
         </div>
     </body>
 </html>

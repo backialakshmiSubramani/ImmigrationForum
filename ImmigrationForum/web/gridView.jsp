@@ -15,10 +15,8 @@
             <br/><br/>
             <c:choose>
                 <c:when test="${sessionScope.user.username != null}">
-                    <a class="nav" href="eindex?action=post">Hi, ${sessionScope.user.username}! Post something!</a>
-
-                    <a class="nav" href="eindex?action=profile&username=${sessionScope.user.username}">View my profile</a>
-                    <a class="nav" href="eindex?action=logout">Logout</a>
+                   
+                    <a class="button" href="eindex?action=logout">Logout</a>
 
                 </c:when>
                 <c:otherwise>
@@ -52,5 +50,5 @@
             </div>   
         </c:forEach>    
        <div id="ft">
-        Immigration Forum - Frequently Asked questions...
+        Immigration Forum - List of Posts...
     </div>

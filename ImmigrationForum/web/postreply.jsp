@@ -39,6 +39,6 @@
             <a class="nav" href="eindex?action=timeline">Back to Home</a>
             <br/>
         </div>
-        <div id="ft"></div>
+        <div id="ft">Immigration Forum  -  Reply Posts</div>
     </body>
 </html>
